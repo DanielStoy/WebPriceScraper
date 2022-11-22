@@ -5,6 +5,10 @@ from .WebSite import SiteType
 class KayJewlersSite(WebSite):
     type = [SiteType.Jewelery]
     classNameForPrice = "price"
+    siteName = "Kay Jewlers"
+    averagePrice = 0
+    amountOfPrices = 0
+    headers = None
 
     def SetupURL(self, searchTerm, lowPricePoint, highPricePoint):
         terms = searchTerm.split()
@@ -19,7 +23,6 @@ class KayJewlersSite(WebSite):
                     searchTermRefined += terms[i]
                 else:
                     searchTermRefined += terms[i] +'+'
-                endOfUrl = ""
         endOfUrl = ""
 
         if(lowPricePoint != ""):
@@ -30,16 +33,12 @@ class KayJewlersSite(WebSite):
 
         self.url += searchTermRefined + endOfUrl
     
-    def ParsePrice(self, prices):
-        pricesToReturn = []
-        for price in prices:
-            #print(price)
-            priceSplit = price.split('(')
-            if(len(priceSplit) == 1):
-                price = price.replace('$', '')
-            else:
-                price = priceSplit[0].replace('$', '')
-            price = price.split()
-            pricesToReturn.append(price[0])
+    def ParsePrice(self, price):
+        priceSplit = price.split('(')
+        if(len(priceSplit) == 1):
+            price = price.replace('$', '')
+        else:
+            price = priceSplit[0].replace('$', '')
+        price = price.split()
         
-        return pricesToReturn
+        return price[0]

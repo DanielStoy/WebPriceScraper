@@ -10,6 +10,10 @@ class WebSite:
     url = "" #base url of the site
     type = [] #type of site, sites can be multiple types
     classNameForPrice = "" #class name to search the html for
+    siteName = "" #name of the site
+    averagePrice = 0 #the average price of the total prices
+    amountOfPrices = 0 #the amount of prices that it took to get the average
+    headers = None #certain sites don't like robots
 
     #setup the url to do search
     #search term is the object we want to search for
@@ -18,7 +22,7 @@ class WebSite:
     def SetupURL(self, searchTerm, lowPricePoint, highPricePoint):
         pass
 
-    #parses the price and removes all the useless stuff except for the thing we actually need
+    #parses a single price based on rules for the site
     def ParsePrice(self, prices):
         pass
 
