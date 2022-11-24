@@ -1,0 +1,26 @@
+.navbar{
+    width: 20%;
+    border-right: 2px solid #A1ACB3
+}
+
+.half-navbar{
+    width: 10%;
+    height: 100%;
+}
+
+.navbar-bumper{
+    height:35px;
+    border-bottom: 2px solid #A1ACB3;
+}
+
+.navbar-item{
+    border-bottom: 2px solid #A1ACB3;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.navbar-icon{
+    float: right;
+    margin: 5px;
+}
+
