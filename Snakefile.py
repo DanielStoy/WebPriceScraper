@@ -8,8 +8,12 @@ from SiteService.Sites.WebSite import SiteType
 def getTypes():
     typeNames = []
     for type in list(SiteType):
-        typeNames.append(type.name)
+        if type.name != "Common":
+            typeNames.append(type.name)
     return typeNames
+
+def getAveragePrices(priceLow, priceHigh, searchTerm, types):
+    pass
 
 
 def start_eel(develop):
