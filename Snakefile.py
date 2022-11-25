@@ -3,6 +3,8 @@ import platform
 import sys
 import eel
 from SiteService.Sites.WebSite import SiteType
+from SiteService.SiteFactory import GenerateSiteList
+from SiteService.SiteParser import ParseSitesForPrice
 
 @eel.expose
 def getTypes():
@@ -12,8 +14,21 @@ def getTypes():
             typeNames.append(type.name)
     return typeNames
 
-def getAveragePrices(priceLow, priceHigh, searchTerm, types):
-    pass
+@eel.expose
+def getAveragePrices(priceLow, priceHigh, searchTerm, typeNames):
+    types = []
+    for typeName in typeNames:
+        types.append(SiteType[typeName])
+    sites = GenerateSiteList(types, searchTerm, priceLow, priceHigh)
+    sites = ParseSitesForPrice(sites)
+    returnSites = []
+    for site in sites:
+        returnSites.append({
+            "name": site.siteName,
+            "averagePrice": site.averagePrice,
+            "amountOfPrices": site.amountOfPrices
+        })
+    return returnSites
 
 
 def start_eel(develop):

@@ -1,3 +1,5 @@
+
+//May be an upgrade in the future depending on my usage
 function DetailedView(){
     return(
         <div>

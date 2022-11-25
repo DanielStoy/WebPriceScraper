@@ -12,7 +12,6 @@ function Dashboard(){
     const [priceHigh, setPriceHigh] = useState(0);
     const [priceLow, setPriceLow] = useState(0);
     const [searchTerm, setSearchTerm] = useState('')
-    const [typesToSearchFor, setTypesToSearchFor] = useState([])
     
     useEffect(() =>{
         eel.getTypes()().then(results =>{
@@ -64,7 +63,7 @@ function Dashboard(){
         <div>
             <div>
                 {
-                    showResults ? <Results/> :
+                    showResults ? <Results priceHigh={priceHigh} priceLow={priceLow} searchTerm={searchTerm} typesOfSites={typesOfSites}/> :
 
                     <div className='dashboard'>
                     <div className='options'>
