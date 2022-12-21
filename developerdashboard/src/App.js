@@ -19,7 +19,7 @@ useEffect(() => {
     <BrowserRouter>
       <Routes>
         <Route index element={<Dashboard />} />
-        <Route path="results" element={<Results />} />
+        <Route path="results/:pricelow/:pricehigh/:" element={<Results />} />
         <Route path="detailedView" element={<DetailedView />} />
       </Routes>
     </BrowserRouter>
